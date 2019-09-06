@@ -227,7 +227,7 @@ def format_cis_comparison_data(cancer_object, omics_name, gene):
             omics_and_mutations[gene+'_Mutation_Status'] == 'Wildtype_Tumor', 'Wildtype', 'Mutated')
 
         # Step 3 - Format the dataframe correctly for the T-test(just omics and binary columns for tumors)
-        tumors = omics_and_mutations.loc[omics_and_mutations['Sample_Status'] == 'Tumor'] #drop Normal samples
+        tumors = omics_and_mutations.loc[omics_and_mutations['Sample_Status'] == 'Tumor'] #### drop Normal samples ####
         columns_to_drop = [gene+"_Mutation", gene+"_Location", gene+"_Mutation_Status", "Sample_Status"]
         omics_binary_mutations = tumors.drop(columns_to_drop, axis = 1)
         #check if only one column of omics data (total 2 columns)
@@ -267,8 +267,8 @@ def get_missense_truncation_comparison(cancer_object, omics_name, gene):
     trunc = mutations_replaced_M_T.loc[mutations_replaced_M_T['Mutation'] == 'Truncation']
 
     #get lists of unique samples for missence and trucation categories
-    miss_unique_samples = list(miss['Sample_ID'].unique())
-    trunc_unique_samples = list(trunc['Sample_ID'].unique())
+    miss_unique_samples = list(miss['Patient_ID'].unique())
+    trunc_unique_samples = list(trunc['Patient_ID'].unique())
     
     #check if there is only one type of mutation for the specific gene
     if miss_unique_samples == []:
