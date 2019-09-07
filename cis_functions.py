@@ -215,6 +215,7 @@ def format_cis_comparison_data(cancer_object, omics_name, gene):
     # Step 1 - Create dataframe in order to do comparisons with wrap_ttest - drop nan values
     omics_and_mutations = cancer_object.join_omics_to_mutations(
         mutations_genes = gene, omics_df_name = omics_name, omics_genes = gene).dropna()
+    flatten_omics_and_mut = cancer_object.reduce_multiindex(omics_and_mutations, levels_to_drop=1, flatten=True)
     #print(omics_and_mutations.head())
     # Check if values in omics data (if not found in proteomics, after na dropped dataframe should be empty)
     if omics_and_mutations[gene+"_"+omics_name].empty:
@@ -223,11 +224,11 @@ def format_cis_comparison_data(cancer_object, omics_name, gene):
     else:
         
         # Step 2 - Create the binary column needed to do the comparison
-        omics_and_mutations['binary_mutations'] = np.where(
-            omics_and_mutations[gene+'_Mutation_Status'] == 'Wildtype_Tumor', 'Wildtype', 'Mutated')
+        flatten_omics_and_mut['binary_mutations'] = np.where(
+            flatten_omics_and_mut[gene+'_Mutation_Status'] == 'Wildtype_Tumor', 'Wildtype', 'Mutated')
 
         # Step 3 - Format the dataframe correctly for the T-test(just omics and binary columns for tumors)
-        tumors = omics_and_mutations.loc[omics_and_mutations['Sample_Status'] == 'Tumor'] #### drop Normal samples ####
+        tumors = flatten_omics_and_mut.loc[flatten_omics_and_mut['Sample_Status'] == 'Tumor'] #### drop Normal samples ####
         columns_to_drop = [gene+"_Mutation", gene+"_Location", gene+"_Mutation_Status", "Sample_Status"]
         omics_binary_mutations = tumors.drop(columns_to_drop, axis = 1)
         #check if only one column of omics data (total 2 columns)
@@ -243,8 +244,8 @@ def get_missense_truncation_comparison(cancer_object, omics_name, gene):
     #get omics data and tumors
     omics_and_mutations = cancer_object.join_omics_to_mutations(
                 mutations_genes = gene, omics_df_name = omics_name, omics_genes = gene)
-    tumors = omics_and_mutations.loc[omics_and_mutations['Sample_Status'] == 'Tumor'] #drop Normal samples
-
+    flatten_omics_and_mutations = cancer_object.reduce_multiindex(omics_and_mutations, levels_to_drop=1, flatten=True)
+    tumors = flatten_omics_and_mutations.loc[flatten_omics_and_mutations['Sample_Status'] == 'Tumor'] #drop Normal samples
 
     somatic_mutations = cancer_object.get_somatic_mutation().reset_index()
 
