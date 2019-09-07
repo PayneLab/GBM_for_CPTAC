@@ -211,16 +211,13 @@ def wrap_ttest_return_all(df, label_column, comparison_columns, total_tests=1, a
 
 
 def format_cis_comparison_data(cancer_object, omics_name, gene):
-    import numpy as np
+    
     # Step 1 - Create dataframe in order to do comparisons with wrap_ttest - drop nan values
     omics_and_mutations = cancer_object.join_omics_to_mutations(
         mutations_genes = gene, omics_df_name = omics_name, omics_genes = gene).dropna()
     flatten_omics_and_mut = cancer_object.reduce_multiindex(omics_and_mutations, levels_to_drop=1, flatten=True)
-    #print(omics_and_mutations.head())
-    # Check if values in omics data (if not found in proteomics, after na dropped dataframe should be empty)
-    if omics_and_mutations[gene+"_"+omics_name].empty:
-        print('Not possible to do T-test. No data for', gene, 'in', omics_name)
-        return None
+   
+    
     else:
         
         # Step 2 - Create the binary column needed to do the comparison
@@ -239,13 +236,9 @@ def format_cis_comparison_data(cancer_object, omics_name, gene):
         else:
             return omics_binary_mutations
 
-def get_missense_truncation_comparison(cancer_object, omics_name, gene):
-    import numpy as np
-    #get omics data and tumors
-    omics_and_mutations = cancer_object.join_omics_to_mutations(
-                mutations_genes = gene, omics_df_name = omics_name, omics_genes = gene)
-    flatten_omics_and_mutations = cancer_object.reduce_multiindex(omics_and_mutations, levels_to_drop=1, flatten=True)
-    tumors = flatten_omics_and_mutations.loc[flatten_omics_and_mutations['Sample_Status'] == 'Tumor'] #drop Normal samples
+def get_missense_truncation_comparison(cancer_object, flattened_omics_and_mut, gene):
+    
+    tumors = flattened_omics_and_mut.loc[flattened_omics_and_mut['Sample_Status'] == 'Tumor'] #drop Normal samples
 
     somatic_mutations = cancer_object.get_somatic_mutation().reset_index()
 
