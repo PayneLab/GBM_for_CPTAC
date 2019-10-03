@@ -1,0 +1,2 @@
+Term,Overlap,P-value,Adjusted P-value,Old P-value,Old Adjusted P-value,Odds Ratio,Combined Score,Genes,Gene_set
+Protein processing in endoplasmic reticulum_Homo sapiens_hsa04141,1/169,0.02513747285769627,1.0,0,0,39.44773175542407,145.3016017213986,SEC24C,KEGG_2016
