@@ -1,0 +1,4 @@
+Term,Overlap,P-value,Adjusted P-value,Old P-value,Old Adjusted P-value,Odds Ratio,Combined Score,Genes,Gene_set
+Insulin resistance_Homo sapiens_hsa04931,1/109,0.016261728200021287,1.0,0,0,61.162079510703364,251.92299052881958,MLXIP,KEGG_2016
+Non-alcoholic fatty liver disease (NAFLD)_Homo sapiens_hsa04932,1/151,0.02248037847305129,1.0,0,0,44.150110375275936,167.5546321460726,MLXIP,KEGG_2016
+Transcriptional misregulation in cancer_Homo sapiens_hsa05202,1/180,0.026758880297526048,1.0,0,0,37.037037037037045,134.10699581451559,JMJD1C,KEGG_2016
