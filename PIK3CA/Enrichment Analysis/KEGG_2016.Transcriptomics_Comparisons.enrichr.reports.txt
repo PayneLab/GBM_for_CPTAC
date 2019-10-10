@@ -1,0 +1,4 @@
+Term,Overlap,P-value,Adjusted P-value,Old P-value,Old Adjusted P-value,Odds Ratio,Combined Score,Genes,Gene_set
+Phototransduction_Homo sapiens_hsa04744,1/27,0.07295674689077883,1.0,0,0,13.227513227513224,34.6281550500222,GRK7,KEGG_2016
+Chemokine signaling pathway_Homo sapiens_hsa04062,1/187,0.40950273220689626,1.0,0,0,1.9098548510313216,1.7051407632837248,GRK7,KEGG_2016
+Endocytosis_Homo sapiens_hsa04144,1/259,0.518547286740476,1.0,0,0,1.3789299503585215,0.905576470431878,GRK7,KEGG_2016
