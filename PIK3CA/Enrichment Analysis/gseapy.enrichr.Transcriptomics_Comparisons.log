@@ -359,3 +359,31 @@ LINE 703 : 2019-10-14 15:33:17,999 [DEBUG   ] Embedding font C:\Windows\Fonts\ar
 LINE 710 : 2019-10-14 15:33:17,999 [DEBUG   ] Writing TrueType font.
 LINE 193 : 2019-10-14 15:33:18,011 [INFO    ] Done.
 
+LINE 154 : 2019-10-14 16:13:34,901 [INFO    ] Connecting to Enrichr Server to get latest library names
+LINE 205 : 2019-10-14 16:13:34,901 [DEBUG   ] Starting new HTTP connection (1): amp.pharm.mssm.edu:80
+LINE 393 : 2019-10-14 16:13:35,156 [DEBUG   ] http://amp.pharm.mssm.edu:80 "GET /Enrichr/datasetStatistics HTTP/1.1" 200 None
+LINE 158 : 2019-10-14 16:13:35,234 [INFO    ] Libraries are used: KEGG_2016
+LINE 166 : 2019-10-14 16:13:35,234 [DEBUG   ] Start Enrichr using library: KEGG_2016
+LINE 167 : 2019-10-14 16:13:35,234 [INFO    ] Analysis name: Phosphoproteomics_Comparisons, Enrichr Library: KEGG_2016
+LINE 205 : 2019-10-14 16:13:35,238 [DEBUG   ] Starting new HTTP connection (1): amp.pharm.mssm.edu:80
+LINE 393 : 2019-10-14 16:13:35,465 [DEBUG   ] http://amp.pharm.mssm.edu:80 "POST /Enrichr/addList HTTP/1.1" 200 74
+LINE 205 : 2019-10-14 16:13:36,473 [DEBUG   ] Starting new HTTP connection (1): amp.pharm.mssm.edu:80
+LINE 393 : 2019-10-14 16:13:36,672 [DEBUG   ] http://amp.pharm.mssm.edu:80 "GET /Enrichr/export?userListId=19524419&filename=KEGG_2016.Phosphoproteomics_Comparisons.reports&backgroundType=KEGG_2016 HTTP/1.1" 200 5030
+LINE 178 : 2019-10-14 16:13:39,688 [INFO    ] Save file of enrichment results: Job Id:78c05b517b3cd1caefdee96c63ea2563
+LINE 189 : 2019-10-14 16:13:39,693 [WARNING ] Warning: No enrich terms using library KEGG_2016 when cutoff = 0.05
+LINE 193 : 2019-10-14 16:13:39,697 [INFO    ] Done.
+
+LINE 154 : 2019-10-14 16:14:36,414 [INFO    ] Connecting to Enrichr Server to get latest library names
+LINE 205 : 2019-10-14 16:14:36,414 [DEBUG   ] Starting new HTTP connection (1): amp.pharm.mssm.edu:80
+LINE 393 : 2019-10-14 16:14:36,567 [DEBUG   ] http://amp.pharm.mssm.edu:80 "GET /Enrichr/datasetStatistics HTTP/1.1" 200 None
+LINE 158 : 2019-10-14 16:14:36,652 [INFO    ] Libraries are used: KEGG_2016
+LINE 166 : 2019-10-14 16:14:36,652 [DEBUG   ] Start Enrichr using library: KEGG_2016
+LINE 167 : 2019-10-14 16:14:36,652 [INFO    ] Analysis name: Phosphoproteomics_Comparisons, Enrichr Library: KEGG_2016
+LINE 205 : 2019-10-14 16:14:36,652 [DEBUG   ] Starting new HTTP connection (1): amp.pharm.mssm.edu:80
+LINE 393 : 2019-10-14 16:14:37,003 [DEBUG   ] http://amp.pharm.mssm.edu:80 "POST /Enrichr/addList HTTP/1.1" 200 74
+LINE 205 : 2019-10-14 16:14:38,003 [DEBUG   ] Starting new HTTP connection (1): amp.pharm.mssm.edu:80
+LINE 393 : 2019-10-14 16:14:38,190 [DEBUG   ] http://amp.pharm.mssm.edu:80 "GET /Enrichr/export?userListId=19524528&filename=KEGG_2016.Phosphoproteomics_Comparisons.reports&backgroundType=KEGG_2016 HTTP/1.1" 200 None
+LINE 178 : 2019-10-14 16:14:41,208 [INFO    ] Save file of enrichment results: Job Id:2561e5bc4c10135e6002087792b85d78
+LINE 189 : 2019-10-14 16:14:41,208 [WARNING ] Warning: No enrich terms using library KEGG_2016 when cutoff = 0.05
+LINE 193 : 2019-10-14 16:14:41,208 [INFO    ] Done.
+
